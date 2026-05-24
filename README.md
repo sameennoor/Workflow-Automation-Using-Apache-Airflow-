@@ -14,7 +14,7 @@ The framework includes multiple DAG-driven pipelines for academic and employee d
 ## 🎓 Student Data ETL Pipeline
 ### Workflow:
 extract_task → transform_task → load_task
-**Functions**
+### Functions
 - Reads student data from CSV files
 - Assigns grades and performance labels
 - Removes failed students
@@ -30,7 +30,7 @@ extract_task → transform_task → load_task
 ### Workflow:
 
 extract_task → transform_task → load_task
-**Functions**
+### Functions
 - Reads employee data from multiple department files
 - Merges datasets into a single structure
 - Calculates bonuses and total salaries
