@@ -43,6 +43,16 @@ extract_task → transform_task → load_task
 | 60k–74,999 | Medium |
 | Below 60k | Low |
 
+# ⏰ Scheduling & Error Handling
+### Automatic Scheduling
+Both pipelines run daily at **9:00 AM** using:
+`schedule_interval='0 9 * * *'`
+### Reliability Features
+- catchup=False
+- Automatic retry on failure
+- 2 retry attempts
+- 2-minute retry delay
+
 # ⚙️ Technology Stack
 | Technology | Purpose |
 |------------|---------|
