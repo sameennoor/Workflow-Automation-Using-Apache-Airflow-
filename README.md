@@ -11,24 +11,52 @@ The framework includes multiple DAG-driven pipelines for academic and employee d
 - SQLite database integration
 - CSV-based analytical report generation
 # 📊 ETL Pipelines
-## 🎓 Student Academic ETL Pipeline
-- Extracts academic datasets
-- Cleans and preprocesses student records
-- Calculates GPA and performance indicators
-- Filters passing students
-- Loads transformed data into SQLite database
-## 💼 Employee Financial ETL Pipeline
-- Reads multiple employee CSV files
-- Aggregates workforce salary datasets
-- Calculates bonuses and compensation metrics
-- Categorizes medium and high earners
-- Generates processed analytical CSV outputs
-# 🔄 Workflow Architecture
-The project uses Apache Airflow DAGs (Directed Acyclic Graphs) to manage execution flow, task dependencies, and automation scheduling.
-## 1. Student Pipeline Flow
+## 🎓 Student Data ETL Pipeline
+### Workflow:
+extract_task → transform_task → load_task
+**Functions**
+- Reads student data from CSV files
+- Assigns grades and performance labels
+- Removes failed students
+- Stores processed data into SQLite database (etl.db)
+### Grade System
+| Marks Range | Grade |
+|-------------|-------|
+| 85+ | A |
+| 70–84 | B |
+| 50–69 | C |
+| Below 50 | F |
+## 💼 Employee Multi-File ETL Pipeline
+### Workflow:
 
-Extract Data → Transform Records → Analyze Performance → Load into SQLite
+extract_task → transform_task → load_task
+**Functions**
+- Reads employee data from multiple department files
+- Merges datasets into a single structure
+- Calculates bonuses and total salaries
+- Categorizes employees by salary range
+- Exports final processed dataset into final_employees.csv
+### Salary Category
+| Salary Range | Category |
+|--------------|----------|
+| 75k+ | High |
+| 60k–74,999 | Medium |
+| Below 60k | Low |
 
-## 2. Employee Pipeline Flow
-
-Read CSV Files → Process Salary Data → Compute Bonuses → Generate Reports
+# ⚙️ Technology Stack
+| Technology | Purpose |
+|------------|---------|
+| Apache Airflow | Workflow Orchestration |
+| Docker | Containerization |
+| Python | ETL Logic & Automation |
+| Pandas | Data Processing |
+| SQLite | Database Storage |
+| CSV Processing | Structured Data Handling |
+# 🛠️ Requirements
+- Windows 10/11
+- WSL 2 Enabled
+- Docker Desktop
+- Python 3.x
+- Apache Airflow
+# ✅ Conclusion
+This project demonstrates practical implementation of workflow automation and ETL orchestration using Apache Airflow and Docker, providing hands-on experience with modern data engineering concepts and automated pipeline management.
